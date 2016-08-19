@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pull-down menu</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }  
+        #menu{
+            background-color: #96ce54;
+            background-image: linear-gradient(#fff143,#96ce54);
+            box-shadow: 0 1px 1px #0aa344;
+            border-radius: 6px;
+            margin: 0 auto;
+            width: 600px;
+            height: 40px;
+
+        } 
+        .first{
+            list-style: none;
+
+        }
+        .first li{
+            float: left;
+            text-align: center;
+            line-height: 40px;
+            position: relative;
+        }
+        .first li a{
+            text-decoration: none;
+            color: #000;
+            display: block;
+            width: 150px;
+
+        }
+        .first li a:hover{
+            background-color: #ffb3a7;
+            
+        }
+        .first li ul li{
+            float: none;
+            margin-top: 2px;
+            background-color: #3eede7;
+            background-image: linear-gradient(#ffb3a7,#3eede7);
+        }
+        .first li ul{
+            visibility: hidden;/*占据空间，无法点击*/
+            position: absolute;
+            left: 0;
+            top:0;
+            height: 0;
+            opacity: 0;/*占据空间，可以点击*/
+            list-style: none;
+            transition: all .2s ease-in-out;
+        }
+        .first li:hover > ul{
+            opacity: 1;
+            top: 55px;
+            height: 126px;
+            visibility: visible;
+        }
+        .first li:hover ul li:hover ul {
+            opacity: 1;
+            background-color: #ffb6c1;
+            top: 0px;
+            left: 166px;
+            visibility: visible;
+        }
+        .first li ul li a:hover{
+            background-color: #87cefa;
+        }
+        .first li ul li ul {
+            opacity: 0;
+            transition: all .2s ease-in-out;
+            position: absolute;
+            left:0;
+            top: 0;
+            visibility: hidden;
+            
+        }
+        .first li ul li:first-child > a:before{
+            content:'';
+            position:absolute;
+            border-right: 16px solid transparent;
+            border-top: 16px solid transparent;
+            border-left: 16px solid transparent;
+            border-bottom: 16px solid #ffb6c1 ;
+            top: -32px;
+        }
+        .first li ul li ul li:first-child > a:before{
+            content: '';
+            position: absolute;
+            border-right: 16px solid #ffb3a7;
+            border-top: 16px solid transparent;
+            border-left: 16px solid transparent;
+            border-bottom: 16px solid transparent ;
+            left: -32px;
+            top: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div id = 'menu'>
+        <ul class ="first">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Course +</a>
+                <ul>
+                    <li><a href="#">javascript +</a>
+                        <ul>
+                            <li><a href="#">basis</a></li>
+                            <li><a href="#">advance</a></li>
+                            <li><a href="#">skill</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">css</a></li>
+                    <li><a href="#">html/html5</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Study Center +</a>
+                <ul>
+                    <li><a href="#">video</a></li>
+                    <li><a href="#">communicate +</a>
+                        <ul>
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">Instagram</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#">Classic Case</a></li>
+        </ul>
+    </div>
+    
+</body>
+</html>

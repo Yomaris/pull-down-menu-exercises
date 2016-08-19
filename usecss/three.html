@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pull-down menu</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }  
+        #menu{
+            background: #eee;
+            margin: 0 auto;
+            width: 600px;
+            height: 40px;
+
+        } 
+        .first{
+            list-style: none;
+
+        }
+        .first li{
+            float: left;
+            text-align: center;
+            line-height: 40px;
+            position: relative;
+        }
+        .first li a{
+            text-decoration: none;
+            color: #000;
+            display: block;
+            width: 150px;
+
+        }
+        .first li a:hover{
+            background-color: #ffff00;
+        }
+        .first li ul li{
+            float: none;
+            background-color: #eee;
+            margin-top: 2px;
+        }
+        .first li ul{
+            position: absolute;
+            left: 0;
+            top: 42px;
+            display: none;
+            list-style: none;
+        }
+        .first li:hover ul{
+            display: block;
+        }
+        .first li:hover ul li ul li{
+            display: none;
+        }
+        .first li:hover ul li:hover li{
+            display: block;
+            background-color: #ffb6c1;
+        }
+        .first li ul li a:hover{
+            background-color: #87cefa;
+        }
+        .first li ul li ul{
+            position: absolute;
+            left: 150px;
+            top: -2px;
+        }
+    </style>
+</head>
+<body>
+    <div id = 'menu'>
+        <ul class ="first">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Course +</a>
+                <ul>
+                    <li><a href="#">javascript +</a>
+                        <ul>
+                            <li><a href="#">basis</a></li>
+                            <li><a href="#">advance</a></li>
+                            <li><a href="#">skill</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">css</a></li>
+                    <li><a href="#">html/html5</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Study Center +</a>
+                <ul>
+                    <li><a href="#">video</a></li>
+                    <li><a href="#">communicate +</a>
+                        <ul>
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">Instagram</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#">Classic Case</a></li>
+        </ul>
+    </div>
+    
+</body>
+</html>
