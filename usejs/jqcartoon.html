@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type='text/css'>
+	*{
+        margin: 0;
+        padding: 0;
+     }  
+     #menu{
+        background: #eee;
+        margin: 0 auto;
+        width: 600px;
+        height: 40px;
+
+     } 
+     ul{
+        list-style: none;
+
+     }
+     ul li{
+        float: left;
+        text-align: center;
+        line-height: 40px;
+        position: relative;
+     }
+     ul li a{
+        text-decoration: none;
+        color: #000;
+        display: block;
+        padding: 0 37.5px;
+
+     }
+     ul li a:hover{
+        background-color: #ffff00;
+     }
+     ul li ul li{
+        float: none;
+        background-color: #eee;
+        margin-top: 2px;
+     }
+     ul li ul{
+        position: absolute;
+        left: 0;
+        top: 42px;
+        display: none;
+     }
+     /*ul li:hover ul{display: block;
+        
+     }*/
+     ul li ul li a:hover{
+        background-color: #06f;
+     }
+    </style>
+</head>
+<body>
+	<div id = 'menu'>
+        <ul class="top">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Course</a>
+                <ul class="btn">
+                    <li><a href="#">javascript</a></li>
+                    <li><a href="#">css</a></li>
+                    <li><a href="#">html/html5</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Study Center</a>
+                <ul>
+                    <li><a href="#">video</a></li>
+                    <li><a href="#">communicate</a></li>
+            
+                </ul>
+            </li>
+            <li><a href="#">Classic Case</a></li>
+         </ul>
+    </div>
+</body>
+<script src="jquery-3.1.0.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(".top li").mousemove(function(){
+        console.log($(this).find('ul'))
+        $(this).find('ul').slideDown(1000);
+    });
+    $('.top li').mouseleave(function(){
+        $(this).find('ul').slideUp(1000);
+    });
+});
+	
+
+</script>
+</html>

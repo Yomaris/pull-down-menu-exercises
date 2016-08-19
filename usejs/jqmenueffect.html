@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.navlist{
+			position: absolute;
+			top: 30px;
+		}
+		a{
+			text-decoration: none;
+			color: white;
+		}
+		.navlist a{
+			margin-left: 170px;
+			color: #666;
+		}
+		.expand{
+			height:0;
+			background: #333d4d;
+			overflow: hidden;
+			position: relative;
+			width: 100%;
+			top: 60px;
+		}
+		.allexp{
+			height: 130px;
+			width: 500%;
+		}
+		.exp-list{
+			width: 20%;
+			text-align: center;
+			line-height: 110px;
+			float: left;
+			color: white;
+		}
+		.expand .close-btn{
+			width: 120px;
+			height: 20px;
+			position: absolute;
+			left: 50%;
+			background: white;
+			bottom: 4px;
+			margin-left: -60px;
+			cursor: pointer;
+			color: black;
+			text-align: center;
+			line-height: 20px;
+		}
+	</style>
+</head>
+<body>
+<div id="menulist" class="navlist">
+	<a href="#">Home</a>
+	<a href="#">Course</a>
+	<a href="#">Study Center</a>
+	<a href="#">My Center</a>
+	<a href="#">About Us</a>
+</div>
+<div id="expandZone" class="expand">
+	<div class="allexp">
+		<div class="exp-list">
+			<a href="#">Home page</a>
+		</div>
+		<div class="exp-list">
+			<a href="#" id="a4">front end</a>
+			<a href="#">back end</a>
+			<a href="#">mobil</a>
+		</div>
+		<div class="exp-list">
+			<a href="#" id="a4">Java</a>
+			<a href="#">Javascript</a>
+			<a href="#">Css</a>
+		</div>
+		<div class="exp-list">
+			Personal Information: 
+		</div>
+		<div class="exp-list">
+			add:Paradise
+		</div>
+	</div>
+	<div id="closeBtn" class="close-btn">retract</div>
+</div>
+
+<script src="jquery-3.1.0.min.js"></script>
+<script>
+	$(function () {
+		$("#menulist").on("click","a",function(){
+			if ($(this).hasClass("btn-active")) {
+				$("#expandZone #closeBtn").click();
+				return false;
+			} 
+			var curIndex = $(this).index();
+			var mlValue = "-" + curIndex * 100 + "%";
+			if ($("#expandZone").hasClass("active")) {
+                $("#expandZone.allexp").animate({marginLeft:mlValue});
+			}
+			else{
+				$("#expandZone.allexp").css({marginLeft:mlValue});
+                $("#expandZone").animate({height: "130px"}).addClass("active");
+			}
+			$(this).addClass("btn-active").siblings().removeClass("btn-active");
+			return false;
+		})
+		$("#expandZone #closeBtn").on("click",function () {
+            	$("#expandZone").animate({height: "0px"},function(){
+            		$(this).removeClass("active");
+            		$("menulist .btn-active").removeClass("btn-active");
+            	})
+            	return false;
+         })
+
+		
+	})
+</script>	
+</body>
+</html>
